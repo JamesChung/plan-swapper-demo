@@ -1,0 +1,124 @@
+{
+    "format_version": "1.0",
+    "terraform_version": "1.7.2",
+    "values": {
+        "root_module": {
+            "resources": [
+                {
+                    "address": "aws_api_gateway_deployment.example",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_deployment",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "created_date": "2024-03-29T21:52:30Z",
+                        "description": "",
+                        "execution_arn": "arn:aws:execute-api:us-east-1:696942721149:h3gl437kt8/",
+                        "id": "803lw0",
+                        "invoke_url": "https://h3gl437kt8.execute-api.us-east-1.amazonaws.com/",
+                        "rest_api_id": "h3gl437kt8",
+                        "stage_description": null,
+                        "stage_name": null,
+                        "triggers": {
+                            "redeployment": "744a804444fa38227f5cab5e90f7d9b6c962784a"
+                        },
+                        "variables": null
+                    },
+                    "sensitive_values": {
+                        "triggers": {}
+                    },
+                    "depends_on": [
+                        "aws_api_gateway_rest_api.example"
+                    ]
+                },
+                {
+                    "address": "aws_api_gateway_rest_api.example",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_rest_api",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "api_key_source": "HEADER",
+                        "arn": "arn:aws:apigateway:us-east-1::/restapis/h3gl437kt8",
+                        "binary_media_types": [],
+                        "body": "{\"info\":{\"title\":\"example\",\"version\":\"1.0\"},\"openapi\":\"3.0.1\",\"paths\":{\"/path1\":{\"get\":{\"x-amazon-apigateway-integration\":{\"httpMethod\":\"GET\",\"payloadFormatVersion\":\"1.0\",\"type\":\"HTTP_PROXY\",\"uri\":\"https://ip-ranges.amazonaws.com/ip-ranges.json\"}}},\"/path2\":{\"get\":{\"x-amazon-apigateway-integration\":{\"httpMethod\":\"GET\",\"payloadFormatVersion\":\"1.0\",\"type\":\"HTTP_PROXY\",\"uri\":\"https://ip-ranges.amazonaws.com/ip-ranges.json\"}}}}}",
+                        "created_date": "2024-03-29T21:52:29Z",
+                        "description": "",
+                        "disable_execute_api_endpoint": false,
+                        "endpoint_configuration": [
+                            {
+                                "types": [
+                                    "EDGE"
+                                ],
+                                "vpc_endpoint_ids": []
+                            }
+                        ],
+                        "execution_arn": "arn:aws:execute-api:us-east-1:696942721149:h3gl437kt8",
+                        "fail_on_warnings": null,
+                        "id": "h3gl437kt8",
+                        "minimum_compression_size": "",
+                        "name": "example",
+                        "parameters": null,
+                        "policy": "",
+                        "put_rest_api_mode": null,
+                        "root_resource_id": "c8nbpa7965",
+                        "tags": null,
+                        "tags_all": {}
+                    },
+                    "sensitive_values": {
+                        "binary_media_types": [],
+                        "endpoint_configuration": [
+                            {
+                                "types": [
+                                    false
+                                ],
+                                "vpc_endpoint_ids": []
+                            }
+                        ],
+                        "tags_all": {}
+                    }
+                },
+                {
+                    "address": "aws_api_gateway_stage.example",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_stage",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "access_log_settings": [],
+                        "arn": "arn:aws:apigateway:us-east-1::/restapis/h3gl437kt8/stages/example",
+                        "cache_cluster_enabled": true,
+                        "cache_cluster_size": "0.5",
+                        "canary_settings": [],
+                        "client_certificate_id": "",
+                        "deployment_id": "803lw0",
+                        "description": "",
+                        "documentation_version": "",
+                        "execution_arn": "arn:aws:execute-api:us-east-1:696942721149:h3gl437kt8/example",
+                        "id": "ags-h3gl437kt8-example",
+                        "invoke_url": "https://h3gl437kt8.execute-api.us-east-1.amazonaws.com/example",
+                        "rest_api_id": "h3gl437kt8",
+                        "stage_name": "example",
+                        "tags": null,
+                        "tags_all": {},
+                        "variables": null,
+                        "web_acl_arn": "",
+                        "xray_tracing_enabled": false
+                    },
+                    "sensitive_values": {
+                        "access_log_settings": [],
+                        "canary_settings": [],
+                        "tags_all": {}
+                    },
+                    "depends_on": [
+                        "aws_api_gateway_deployment.example",
+                        "aws_api_gateway_rest_api.example"
+                    ]
+                }
+            ]
+        }
+    }
+}

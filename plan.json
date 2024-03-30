@@ -1,0 +1,516 @@
+{
+    "format_version": "1.2",
+    "terraform_version": "1.7.2",
+    "planned_values": {
+        "root_module": {
+            "resources": [
+                {
+                    "address": "aws_api_gateway_deployment.example",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_deployment",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "description": null,
+                        "stage_description": null,
+                        "stage_name": null,
+                        "triggers": {
+                            "redeployment": "744a804444fa38227f5cab5e90f7d9b6c962784a"
+                        },
+                        "variables": null
+                    },
+                    "sensitive_values": {
+                        "triggers": {}
+                    }
+                },
+                {
+                    "address": "aws_api_gateway_method_settings.all",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_method_settings",
+                    "name": "all",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "method_path": "*/*",
+                        "settings": [
+                            {
+                                "logging_level": "ERROR",
+                                "metrics_enabled": true,
+                                "throttling_burst_limit": -1,
+                                "throttling_rate_limit": -1
+                            }
+                        ],
+                        "stage_name": "example"
+                    },
+                    "sensitive_values": {
+                        "settings": [
+                            {}
+                        ]
+                    }
+                },
+                {
+                    "address": "aws_api_gateway_method_settings.path_specific",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_method_settings",
+                    "name": "path_specific",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "method_path": "path1/GET",
+                        "settings": [
+                            {
+                                "logging_level": "INFO",
+                                "metrics_enabled": true,
+                                "throttling_burst_limit": -1,
+                                "throttling_rate_limit": -1
+                            }
+                        ],
+                        "stage_name": "example"
+                    },
+                    "sensitive_values": {
+                        "settings": [
+                            {}
+                        ]
+                    }
+                },
+                {
+                    "address": "aws_api_gateway_rest_api.example",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_rest_api",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "body": "{\"info\":{\"title\":\"example\",\"version\":\"1.0\"},\"openapi\":\"3.0.1\",\"paths\":{\"/path1\":{\"get\":{\"x-amazon-apigateway-integration\":{\"httpMethod\":\"GET\",\"payloadFormatVersion\":\"1.0\",\"type\":\"HTTP_PROXY\",\"uri\":\"https://ip-ranges.amazonaws.com/ip-ranges.json\"}}},\"/path2\":{\"get\":{\"x-amazon-apigateway-integration\":{\"httpMethod\":\"GET\",\"payloadFormatVersion\":\"1.0\",\"type\":\"HTTP_PROXY\",\"uri\":\"https://ip-ranges.amazonaws.com/ip-ranges.json\"}}}}}",
+                        "fail_on_warnings": null,
+                        "name": "example",
+                        "parameters": null,
+                        "put_rest_api_mode": null,
+                        "tags": null
+                    },
+                    "sensitive_values": {
+                        "binary_media_types": [],
+                        "endpoint_configuration": [],
+                        "tags_all": {}
+                    }
+                },
+                {
+                    "address": "aws_api_gateway_stage.example",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_stage",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "access_log_settings": [],
+                        "cache_cluster_enabled": true,
+                        "cache_cluster_size": "0.5",
+                        "canary_settings": [],
+                        "client_certificate_id": null,
+                        "description": null,
+                        "documentation_version": null,
+                        "stage_name": "example",
+                        "tags": null,
+                        "variables": null,
+                        "xray_tracing_enabled": null
+                    },
+                    "sensitive_values": {
+                        "access_log_settings": [],
+                        "canary_settings": [],
+                        "tags_all": {}
+                    }
+                }
+            ]
+        }
+    },
+    "resource_changes": [
+        {
+            "address": "aws_api_gateway_deployment.example",
+            "mode": "managed",
+            "type": "aws_api_gateway_deployment",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "description": null,
+                    "stage_description": null,
+                    "stage_name": null,
+                    "triggers": {
+                        "redeployment": "744a804444fa38227f5cab5e90f7d9b6c962784a"
+                    },
+                    "variables": null
+                },
+                "after_unknown": {
+                    "created_date": true,
+                    "execution_arn": true,
+                    "id": true,
+                    "invoke_url": true,
+                    "rest_api_id": true,
+                    "triggers": {}
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "triggers": {}
+                }
+            }
+        },
+        {
+            "address": "aws_api_gateway_method_settings.all",
+            "mode": "managed",
+            "type": "aws_api_gateway_method_settings",
+            "name": "all",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "method_path": "*/*",
+                    "settings": [
+                        {
+                            "logging_level": "ERROR",
+                            "metrics_enabled": true,
+                            "throttling_burst_limit": -1,
+                            "throttling_rate_limit": -1
+                        }
+                    ],
+                    "stage_name": "example"
+                },
+                "after_unknown": {
+                    "id": true,
+                    "rest_api_id": true,
+                    "settings": [
+                        {
+                            "cache_data_encrypted": true,
+                            "cache_ttl_in_seconds": true,
+                            "caching_enabled": true,
+                            "data_trace_enabled": true,
+                            "require_authorization_for_cache_control": true,
+                            "unauthorized_cache_control_header_strategy": true
+                        }
+                    ]
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "settings": [
+                        {}
+                    ]
+                }
+            }
+        },
+        {
+            "address": "aws_api_gateway_method_settings.path_specific",
+            "mode": "managed",
+            "type": "aws_api_gateway_method_settings",
+            "name": "path_specific",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "method_path": "path1/GET",
+                    "settings": [
+                        {
+                            "logging_level": "INFO",
+                            "metrics_enabled": true,
+                            "throttling_burst_limit": -1,
+                            "throttling_rate_limit": -1
+                        }
+                    ],
+                    "stage_name": "example"
+                },
+                "after_unknown": {
+                    "id": true,
+                    "rest_api_id": true,
+                    "settings": [
+                        {
+                            "cache_data_encrypted": true,
+                            "cache_ttl_in_seconds": true,
+                            "caching_enabled": true,
+                            "data_trace_enabled": true,
+                            "require_authorization_for_cache_control": true,
+                            "unauthorized_cache_control_header_strategy": true
+                        }
+                    ]
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "settings": [
+                        {}
+                    ]
+                }
+            }
+        },
+        {
+            "address": "aws_api_gateway_rest_api.example",
+            "mode": "managed",
+            "type": "aws_api_gateway_rest_api",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "body": "{\"info\":{\"title\":\"example\",\"version\":\"1.0\"},\"openapi\":\"3.0.1\",\"paths\":{\"/path1\":{\"get\":{\"x-amazon-apigateway-integration\":{\"httpMethod\":\"GET\",\"payloadFormatVersion\":\"1.0\",\"type\":\"HTTP_PROXY\",\"uri\":\"https://ip-ranges.amazonaws.com/ip-ranges.json\"}}},\"/path2\":{\"get\":{\"x-amazon-apigateway-integration\":{\"httpMethod\":\"GET\",\"payloadFormatVersion\":\"1.0\",\"type\":\"HTTP_PROXY\",\"uri\":\"https://ip-ranges.amazonaws.com/ip-ranges.json\"}}}}}",
+                    "fail_on_warnings": null,
+                    "name": "example",
+                    "parameters": null,
+                    "put_rest_api_mode": null,
+                    "tags": null
+                },
+                "after_unknown": {
+                    "api_key_source": true,
+                    "arn": true,
+                    "binary_media_types": true,
+                    "created_date": true,
+                    "description": true,
+                    "disable_execute_api_endpoint": true,
+                    "endpoint_configuration": true,
+                    "execution_arn": true,
+                    "id": true,
+                    "minimum_compression_size": true,
+                    "policy": true,
+                    "root_resource_id": true,
+                    "tags_all": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "binary_media_types": [],
+                    "endpoint_configuration": [],
+                    "tags_all": {}
+                }
+            }
+        },
+        {
+            "address": "aws_api_gateway_stage.example",
+            "mode": "managed",
+            "type": "aws_api_gateway_stage",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "access_log_settings": [],
+                    "cache_cluster_enabled": true,
+                    "cache_cluster_size": "0.5",
+                    "canary_settings": [],
+                    "client_certificate_id": null,
+                    "description": null,
+                    "documentation_version": null,
+                    "stage_name": "example",
+                    "tags": null,
+                    "variables": null,
+                    "xray_tracing_enabled": null
+                },
+                "after_unknown": {
+                    "access_log_settings": [],
+                    "arn": true,
+                    "canary_settings": [],
+                    "deployment_id": true,
+                    "execution_arn": true,
+                    "id": true,
+                    "invoke_url": true,
+                    "rest_api_id": true,
+                    "tags_all": true,
+                    "web_acl_arn": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "access_log_settings": [],
+                    "canary_settings": [],
+                    "tags_all": {}
+                }
+            }
+        }
+    ],
+    "configuration": {
+        "provider_config": {
+            "aws": {
+                "name": "aws",
+                "full_name": "registry.terraform.io/hashicorp/aws"
+            }
+        },
+        "root_module": {
+            "resources": [
+                {
+                    "address": "aws_api_gateway_deployment.example",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_deployment",
+                    "name": "example",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "rest_api_id": {
+                            "references": [
+                                "aws_api_gateway_rest_api.example.id",
+                                "aws_api_gateway_rest_api.example"
+                            ]
+                        },
+                        "triggers": {
+                            "references": [
+                                "aws_api_gateway_rest_api.example.body",
+                                "aws_api_gateway_rest_api.example"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "aws_api_gateway_method_settings.all",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_method_settings",
+                    "name": "all",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "method_path": {
+                            "constant_value": "*/*"
+                        },
+                        "rest_api_id": {
+                            "references": [
+                                "aws_api_gateway_rest_api.example.id",
+                                "aws_api_gateway_rest_api.example"
+                            ]
+                        },
+                        "settings": [
+                            {
+                                "logging_level": {
+                                    "constant_value": "ERROR"
+                                },
+                                "metrics_enabled": {
+                                    "constant_value": true
+                                }
+                            }
+                        ],
+                        "stage_name": {
+                            "references": [
+                                "aws_api_gateway_stage.example.stage_name",
+                                "aws_api_gateway_stage.example"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "aws_api_gateway_method_settings.path_specific",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_method_settings",
+                    "name": "path_specific",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "method_path": {
+                            "constant_value": "path1/GET"
+                        },
+                        "rest_api_id": {
+                            "references": [
+                                "aws_api_gateway_rest_api.example.id",
+                                "aws_api_gateway_rest_api.example"
+                            ]
+                        },
+                        "settings": [
+                            {
+                                "logging_level": {
+                                    "constant_value": "INFO"
+                                },
+                                "metrics_enabled": {
+                                    "constant_value": true
+                                }
+                            }
+                        ],
+                        "stage_name": {
+                            "references": [
+                                "aws_api_gateway_stage.example.stage_name",
+                                "aws_api_gateway_stage.example"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "aws_api_gateway_rest_api.example",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_rest_api",
+                    "name": "example",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "body": {},
+                        "name": {
+                            "constant_value": "example"
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "aws_api_gateway_stage.example",
+                    "mode": "managed",
+                    "type": "aws_api_gateway_stage",
+                    "name": "example",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "cache_cluster_enabled": {
+                            "constant_value": true
+                        },
+                        "cache_cluster_size": {
+                            "constant_value": "0.5"
+                        },
+                        "deployment_id": {
+                            "references": [
+                                "aws_api_gateway_deployment.example.id",
+                                "aws_api_gateway_deployment.example"
+                            ]
+                        },
+                        "rest_api_id": {
+                            "references": [
+                                "aws_api_gateway_rest_api.example.id",
+                                "aws_api_gateway_rest_api.example"
+                            ]
+                        },
+                        "stage_name": {
+                            "constant_value": "example"
+                        }
+                    },
+                    "schema_version": 0
+                }
+            ]
+        }
+    },
+    "relevant_attributes": [
+        {
+            "resource": "aws_api_gateway_rest_api.example",
+            "attribute": [
+                "id"
+            ]
+        },
+        {
+            "resource": "aws_api_gateway_rest_api.example",
+            "attribute": [
+                "body"
+            ]
+        },
+        {
+            "resource": "aws_api_gateway_deployment.example",
+            "attribute": [
+                "id"
+            ]
+        },
+        {
+            "resource": "aws_api_gateway_stage.example",
+            "attribute": [
+                "stage_name"
+            ]
+        }
+    ],
+    "timestamp": "2024-03-29T21:48:35Z",
+    "errored": false
+}
