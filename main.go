@@ -9,11 +9,12 @@ import (
 )
 
 type State struct {
-	Values map[string]Module `json:"values"`
+	Values map[string]*Module `json:"values"`
 }
 
 type Module struct {
-	Resources []StateResource `json:"resources"`
+	Resources    []StateResource `json:"resources"`
+	ChildModules []*Module       `json:"child_modules"`
 }
 
 type StateResource struct {
@@ -21,10 +22,29 @@ type StateResource struct {
 	Values  *json.RawMessage `json:"values"`
 }
 
-func GetStateFileResourceMapping(filePath string) (map[string]*json.RawMessage, error) {
-	resourceMap := make(map[string]*json.RawMessage)
+type ResourceMap map[string]*json.RawMessage
 
-	stateFile, err := os.Open(filePath)
+func (r ResourceMap) AddModuleResources(resources []StateResource) {
+	for _, resource := range resources {
+		r[resource.Address] = resource.Values
+	}
+}
+
+func (r ResourceMap) AddModule(module *Module) {
+	if module.Resources != nil {
+		r.AddModuleResources(module.Resources)
+	}
+	if module.ChildModules != nil {
+		for _, mod := range module.ChildModules {
+			r.AddModule(mod)
+		}
+	}
+}
+
+func GetStateFileResourceMapping(stateFilePath string) (ResourceMap, error) {
+	resourceMap := make(ResourceMap)
+
+	stateFile, err := os.Open(stateFilePath)
 	if err != nil {
 		return nil, err
 	}
@@ -40,16 +60,14 @@ func GetStateFileResourceMapping(filePath string) (map[string]*json.RawMessage, 
 		return nil, err
 	}
 
-	for _, v := range state.Values {
-		for _, resource := range v.Resources {
-			resourceMap[resource.Address] = resource.Values
-		}
+	for _, module := range state.Values {
+		resourceMap.AddModule(module)
 	}
 
 	return resourceMap, nil
 }
 
-func GenerateUpdatedPlanJSONFile(planFilePath string, resourceMap map[string]*json.RawMessage) ([]byte, error) {
+func (r ResourceMap) GenerateUpdatedPlanJSONFile(planFilePath string) ([]byte, error) {
 	planFile, err := os.Open(planFilePath)
 	if err != nil {
 		log.Fatalln(err)
@@ -60,19 +78,19 @@ func GenerateUpdatedPlanJSONFile(planFilePath string, resourceMap map[string]*js
 		log.Fatalln(err)
 	}
 
-	m := make(map[string]any)
+	plan := make(map[string]any)
 
-	err = json.Unmarshal(planFileBytes, &m)
+	err = json.Unmarshal(planFileBytes, &plan)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	if resourceChanges, ok := m["resource_changes"].([]any); ok {
+	if resourceChanges, ok := plan["resource_changes"].([]any); ok {
 		for _, resource := range resourceChanges {
-			if r, ok := resource.(map[string]any); ok {
-				address := r["address"].(string)
-				if c, ok := r["change"].(map[string]any); ok {
-					if values, ok := resourceMap[address]; ok {
+			if res, ok := resource.(map[string]any); ok {
+				address := res["address"].(string)
+				if c, ok := res["change"].(map[string]any); ok {
+					if values, ok := r[address]; ok {
 						c["after"] = values
 						c["after_unknown"] = struct{}{}
 					}
@@ -81,7 +99,7 @@ func GenerateUpdatedPlanJSONFile(planFilePath string, resourceMap map[string]*js
 		}
 	}
 
-	return json.Marshal(&m)
+	return json.Marshal(&plan)
 }
 
 func main() {
@@ -90,7 +108,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	data, err := GenerateUpdatedPlanJSONFile("plan.json", resourceMap)
+	data, err := resourceMap.GenerateUpdatedPlanJSONFile("plan.json")
 	if err != nil {
 		log.Fatalln(err)
 	}
