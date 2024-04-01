@@ -41,6 +41,67 @@ func (r ResourceMap) AddModule(module *Module) {
 	}
 }
 
+func (r ResourceMap) GenerateUpdatedPlanJSONFile(planFilePath string) ([]byte, error) {
+	planFile, err := os.Open(planFilePath)
+	if err != nil {
+		return nil, err
+	}
+
+	planFileBytes, err := io.ReadAll(planFile)
+	if err != nil {
+		return nil, err
+	}
+
+	plan := make(map[string]any)
+
+	err = json.Unmarshal(planFileBytes, &plan)
+	if err != nil {
+		return nil, err
+	}
+
+	if plannedValues, ok := plan["planned_values"].(map[string]any); ok {
+		for _, module := range plannedValues {
+			r.traversePlannedValuesModule(module)
+		}
+	}
+
+	if resourceChanges, ok := plan["resource_changes"].([]any); ok {
+		for _, resource := range resourceChanges {
+			if res, ok := resource.(map[string]any); ok {
+				address := res["address"].(string)
+				if c, ok := res["change"].(map[string]any); ok {
+					if values, ok := r[address]; ok {
+						c["after"] = values
+						c["after_unknown"] = struct{}{}
+					}
+				}
+			}
+		}
+	}
+
+	return json.Marshal(&plan)
+}
+
+func (r ResourceMap) traversePlannedValuesModule(module any) {
+	if mod, ok := module.(map[string]any); ok {
+		if resources, ok := mod["resources"].([]any); ok {
+			for _, resource := range resources {
+				res := resource.(map[string]any)
+				if address, ok := res["address"].(string); ok {
+					if values, ok := r[address]; ok {
+						res["values"] = values
+					}
+				}
+			}
+		}
+		if children, ok := mod["child_modules"].([]any); ok {
+			for _, child := range children {
+				r.traversePlannedValuesModule(child)
+			}
+		}
+	}
+}
+
 func GetStateFileResourceMapping(stateFilePath string) (ResourceMap, error) {
 	resourceMap := make(ResourceMap)
 
@@ -65,41 +126,6 @@ func GetStateFileResourceMapping(stateFilePath string) (ResourceMap, error) {
 	}
 
 	return resourceMap, nil
-}
-
-func (r ResourceMap) GenerateUpdatedPlanJSONFile(planFilePath string) ([]byte, error) {
-	planFile, err := os.Open(planFilePath)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	planFileBytes, err := io.ReadAll(planFile)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	plan := make(map[string]any)
-
-	err = json.Unmarshal(planFileBytes, &plan)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	if resourceChanges, ok := plan["resource_changes"].([]any); ok {
-		for _, resource := range resourceChanges {
-			if res, ok := resource.(map[string]any); ok {
-				address := res["address"].(string)
-				if c, ok := res["change"].(map[string]any); ok {
-					if values, ok := r[address]; ok {
-						c["after"] = values
-						c["after_unknown"] = struct{}{}
-					}
-				}
-			}
-		}
-	}
-
-	return json.Marshal(&plan)
 }
 
 func main() {
