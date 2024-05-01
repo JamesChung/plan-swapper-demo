@@ -132,13 +132,14 @@ func GetStateV4ResourceMapping(stateFilePath string) (ResourceMap, error) {
 		}
 		address += fmt.Sprintf("%s.%s", resource.Type, resource.Name)
 		for _, instance := range resource.Instances {
+			var addr string
 			switch val := instance.IndexKey.(type) {
 			case float64:
-				address = fmt.Sprintf("%s[%d]", address, int(val))
+				addr = fmt.Sprintf("%s[%d]", address, int(val))
 			case string:
-				address = fmt.Sprintf("%s[\"%s\"]", address, val)
+				addr = fmt.Sprintf("%s[\"%s\"]", address, val)
 			}
-			resourceMap[address] = &instance.AttributesRaw
+			resourceMap[addr] = &instance.AttributesRaw
 		}
 	}
 

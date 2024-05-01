@@ -1,85 +1,27 @@
 {
   "version": 4,
   "terraform_version": "1.8.2",
-  "serial": 3,
-  "lineage": "9bc96af0-9128-ed41-a848-decdc99b0933",
+  "serial": 7,
+  "lineage": "1794bc73-488a-9381-aefe-6e6aac9b5757",
   "outputs": {},
   "resources": [
     {
-      "module": "module.s3-bucket",
-      "mode": "data",
-      "type": "aws_caller_identity",
-      "name": "current",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "account_id": "123456789012",
-            "arn": "arn:aws:sts::123456789012:assumed-role/AWSReservedSSO_AWSAdministratorAccess_3b0494eac4671277/james-admin",
-            "id": "123456789012",
-            "user_id": "AROAYV7FNST6IUO5KA5XB:james-admin"
-          },
-          "sensitive_attributes": []
-        }
-      ]
-    },
-    {
-      "module": "module.s3-bucket",
-      "mode": "data",
-      "type": "aws_partition",
-      "name": "current",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "dns_suffix": "amazonaws.com",
-            "id": "aws",
-            "partition": "aws",
-            "reverse_dns_prefix": "com.amazonaws"
-          },
-          "sensitive_attributes": []
-        }
-      ]
-    },
-    {
-      "module": "module.s3-bucket",
-      "mode": "data",
-      "type": "aws_region",
-      "name": "current",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "description": "US East (N. Virginia)",
-            "endpoint": "ec2.us-east-1.amazonaws.com",
-            "id": "us-east-1",
-            "name": "us-east-1"
-          },
-          "sensitive_attributes": []
-        }
-      ]
-    },
-    {
-      "module": "module.s3-bucket",
       "mode": "managed",
       "type": "aws_s3_bucket",
-      "name": "this",
+      "name": "example",
       "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
       "instances": [
         {
-          "index_key": 0,
+          "index_key": "sdlkfjslkjsldkjsldkfjslkjl",
           "schema_version": 0,
           "attributes": {
             "acceleration_status": "",
             "acl": null,
-            "arn": "arn:aws:s3:::owiejoewjioewjrioewjrioewjroiweriowj",
-            "bucket": "owiejoewjioewjrioewjrioewjroiweriowj",
-            "bucket_domain_name": "owiejoewjioewjrioewjrioewjroiweriowj.s3.amazonaws.com",
+            "arn": "arn:aws:s3:::sdlkfjslkjsldkjsldkfjslkjl",
+            "bucket": "sdlkfjslkjsldkjsldkfjslkjl",
+            "bucket_domain_name": "sdlkfjslkjsldkjsldkfjslkjl.s3.amazonaws.com",
             "bucket_prefix": "",
-            "bucket_regional_domain_name": "owiejoewjioewjrioewjrioewjroiweriowj.s3.us-east-1.amazonaws.com",
+            "bucket_regional_domain_name": "sdlkfjslkjsldkjsldkfjslkjl.s3.us-east-1.amazonaws.com",
             "cors_rule": [],
             "force_destroy": false,
             "grant": [
@@ -93,7 +35,7 @@
               }
             ],
             "hosted_zone_id": "Z3AQBSTGFYJSTF",
-            "id": "owiejoewjioewjrioewjrioewjroiweriowj",
+            "id": "sdlkfjslkjsldkjsldkfjslkjl",
             "lifecycle_rule": [],
             "logging": [],
             "object_lock_configuration": [],
@@ -117,8 +59,154 @@
                 ]
               }
             ],
-            "tags": null,
-            "tags_all": {},
+            "tags": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "tags_all": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        },
+        {
+          "index_key": "woeirweoivwonwoinowegojoaifj",
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::woeirweoivwonwoinowegojoaifj",
+            "bucket": "woeirweoivwonwoinowegojoaifj",
+            "bucket_domain_name": "woeirweoivwonwoinowegojoaifj.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "woeirweoivwonwoinowegojoaifj.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "a9ae83819014f07d9bacb141b1f3642b496b7cec122b713d4ad0c62799f8a412",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "woeirweoivwonwoinowegojoaifj",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "tags_all": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        },
+        {
+          "index_key": "woieggireieiuieutrytim",
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::woieggireieiuieutrytim",
+            "bucket": "woieggireieiuieutrytim",
+            "bucket_domain_name": "woieggireieiuieutrytim.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "woieggireieiuieutrytim.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "a9ae83819014f07d9bacb141b1f3642b496b7cec122b713d4ad0c62799f8a412",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "woieggireieiuieutrytim",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "tags_all": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
             "timeouts": null,
             "versioning": [
               {
@@ -136,28 +224,220 @@
       ]
     },
     {
-      "module": "module.s3-bucket",
       "mode": "managed",
-      "type": "aws_s3_bucket_public_access_block",
-      "name": "this",
+      "type": "aws_s3_bucket",
+      "name": "example_count",
       "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
       "instances": [
         {
           "index_key": 0,
           "schema_version": 0,
           "attributes": {
-            "block_public_acls": true,
-            "block_public_policy": true,
-            "bucket": "owiejoewjioewjrioewjrioewjroiweriowj",
-            "id": "owiejoewjioewjrioewjrioewjroiweriowj",
-            "ignore_public_acls": true,
-            "restrict_public_buckets": true
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::soiejrowhrewrwhrwr-0",
+            "bucket": "soiejrowhrewrwhrwr-0",
+            "bucket_domain_name": "soiejrowhrewrwhrwr-0.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "soiejrowhrewrwhrwr-0.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "a9ae83819014f07d9bacb141b1f3642b496b7cec122b713d4ad0c62799f8a412",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "soiejrowhrewrwhrwr-0",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "tags_all": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
           },
           "sensitive_attributes": [],
-          "private": "bnVsbA==",
-          "dependencies": [
-            "module.s3-bucket.aws_s3_bucket.this"
-          ]
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::soiejrowhrewrwhrwr-1",
+            "bucket": "soiejrowhrewrwhrwr-1",
+            "bucket_domain_name": "soiejrowhrewrwhrwr-1.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "soiejrowhrewrwhrwr-1.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "a9ae83819014f07d9bacb141b1f3642b496b7cec122b713d4ad0c62799f8a412",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "soiejrowhrewrwhrwr-1",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "tags_all": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        },
+        {
+          "index_key": 2,
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::soiejrowhrewrwhrwr-2",
+            "bucket": "soiejrowhrewrwhrwr-2",
+            "bucket_domain_name": "soiejrowhrewrwhrwr-2.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "soiejrowhrewrwhrwr-2.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "a9ae83819014f07d9bacb141b1f3642b496b7cec122b713d4ad0c62799f8a412",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "soiejrowhrewrwhrwr-2",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "tags_all": {
+              "Environment": "Dev",
+              "Name": "My bucket"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
         }
       ]
     }
