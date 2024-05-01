@@ -9,7 +9,8 @@ import (
 )
 
 type State struct {
-	Values map[string]*Module `json:"values"`
+	Version int                `json:"version"`
+	Values  map[string]*Module `json:"values"`
 }
 
 type Module struct {
