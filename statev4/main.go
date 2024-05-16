@@ -138,6 +138,8 @@ func GetStateV4ResourceMapping(stateFilePath string) (ResourceMap, error) {
 				addr = fmt.Sprintf("%s[%d]", address, int(val))
 			case string:
 				addr = fmt.Sprintf("%s[\"%s\"]", address, val)
+			default:
+				addr = address
 			}
 			resourceMap[addr] = &instance.AttributesRaw
 		}
